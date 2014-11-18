@@ -14,13 +14,16 @@ else
   APP_OPTIM := release
 endif
 
-CC_USE_CURL := 1
-
-
-
-
-
+CC_USE_CURL := 0
+CC_USE_CCSTUDIO := 0
+CC_USE_CCBUILDER := 0
 
 ifeq ($(CC_USE_CURL),0)
 APP_CPPFLAGS += -DCC_USE_CURL=0
+endif
+ifeq ($(CC_USE_CCSTUDIO),0)
+APP_CPPFLAGS += -DCC_USE_CCSTUDIO=0
+endif
+ifeq ($(CC_USE_CCBUILDER),0)
+APP_CPPFLAGS += -DCC_USE_CCBUILDER=0
 endif
