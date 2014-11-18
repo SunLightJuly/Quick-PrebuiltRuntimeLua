@@ -120,7 +120,7 @@ LOCAL_SRC_FILES += ../../../../external/lua/quick/lua_cocos2dx_quick_manual.cpp 
 #extension
 ifeq ($(CC_USE_CURL),1)
 LOCAL_SRC_FILES += \
-lua_cocos2dx_assetsmanager_auto.cpp
+../auto/lua_cocos2dx_assetsmanager_auto.cpp
 endif
 LOCAL_SRC_FILES += ../manual/extension/lua_cocos2dx_extension_manual.cpp \
                    ../auto/lua_cocos2dx_extension_auto.cpp \

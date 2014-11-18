@@ -13,3 +13,14 @@ else
   APP_CPPFLAGS += -DNDEBUG
   APP_OPTIM := release
 endif
+
+CC_USE_CURL := 1
+
+
+
+
+
+
+ifeq ($(CC_USE_CURL),0)
+APP_CPPFLAGS += -DCC_USE_CURL=0
+endif
