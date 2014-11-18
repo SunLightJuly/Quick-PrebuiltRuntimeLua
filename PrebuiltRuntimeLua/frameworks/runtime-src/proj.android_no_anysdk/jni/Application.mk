@@ -28,3 +28,6 @@ endif
 ifeq ($(CC_USE_CCBUILDER),0)
 APP_CPPFLAGS += -DCC_USE_CCBUILDER=0
 endif
+ifeq ($(CC_USE_SPINE),0)
+APP_CPPFLAGS += -DCC_USE_SPINE=0
+endif
