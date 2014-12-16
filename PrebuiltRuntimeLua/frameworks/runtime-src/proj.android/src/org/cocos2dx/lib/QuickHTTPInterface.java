@@ -35,7 +35,6 @@ public class QuickHTTPInterface {
             urlConnection = (HttpURLConnection)url.openConnection();
             urlConnection.setRequestProperty("Accept-Encoding", "identity");
             urlConnection.setDoInput(true);
-            urlConnection.setDoOutput(true);
         } catch (Exception e) {
             Log.e("QuickHTTPInterface", e.toString());
             return null;
@@ -46,6 +45,9 @@ public class QuickHTTPInterface {
 
     static void setRequestMethod(HttpURLConnection http, String strMedthod) {
         try {
+            if ("POST".equalsIgnoreCase(strMedthod)) {
+                http.setDoOutput(true);
+            }
             http.setRequestMethod(strMedthod);
         } catch (ProtocolException e) {
             Log.e("QuickHTTPInterface", e.toString());
@@ -90,6 +92,18 @@ public class QuickHTTPInterface {
                 content = "&" + content;
             }
             out.write(content.getBytes());
+            out.flush();
+        } catch (IOException e) {
+            Log.e("QuickHTTPInterface", e.toString());
+        }
+    }
+
+    static void postContentByteArray(HttpURLConnection http, byte[] byteArray) {
+        try {
+            OutputStream out = http.getOutputStream();
+
+            out.write(byteArray);
+
             out.flush();
         } catch (IOException e) {
             Log.e("QuickHTTPInterface", e.toString());
